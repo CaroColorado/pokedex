@@ -1,0 +1,49 @@
+
+$colores:(
+    "rojo" : #fd1956
+);
+@mixin sectionDoble{
+    width: 320px;
+    height: 400px;
+    background-color: map-get($colores, rojo);
+    position: absolute;
+    border-top: solid black 3px;
+}
+
+@mixin circulo($color, $w, $h){
+    background: $color;
+    border-radius: 50%;
+    width: $w;
+    height: $h;
+}
+
+.pokedex{
+    width: 640px;
+    height: 500px;
+    margin: auto;
+    position: relative;
+    &__left{
+        width: 320px;
+        height: 500px;
+        background-color: map-get($colores, rojo);
+        border: solid black 3px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        position: relative;
+        &-inside{
+        @include sectionDoble();
+            border-bottom-left-radius: 10px;
+            bottom: 0;
+        }
+    }
+    &__right{
+        @include sectionDoble();
+        border-bottom: solid black 3px;
+        border-right: solid black 3px;
+        border-bottom-right-radius: 10px;
+        bottom: -6px; 
+        left: 326px;
+    }
+}
+
