@@ -1,6 +1,8 @@
 
 $colores:(
-    "rojo" : #fd1956
+    "rojo" : #fd1956,
+    "cafe" : #002c28,
+    "blanco": #dfdfdf
 );
 @mixin sectionDoble{
     width: 320px;
@@ -32,9 +34,27 @@ $colores:(
         border-bottom-left-radius: 10px;
         position: relative;
         &-inside{
-        @include sectionDoble();
+            @include sectionDoble();
             border-bottom-left-radius: 10px;
             bottom: 0;
+            .panel{
+                width: 240px;
+                height: 200px;
+                background-color: map-get($colores, blanco);
+                border: solid black 3px;
+                border-radius: 5px;
+                margin: 30px auto;
+                border-bottom-left-radius: 30px;
+                &__inside{
+                    width: 180px;
+                    height: 140px;
+                    background-color: map-get($colores, cafe);
+                    margin: 27px auto;
+                    border: solid black 3px;
+                    border-bottom-left-radius: 30px;
+                    content: url(https://www.pokemon.com/static-assets/app/static3/img/og-default-image.jpeg);
+                }
+            }
         }
     }
     &__right{
